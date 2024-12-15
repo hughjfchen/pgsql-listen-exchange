@@ -24,8 +24,8 @@
           enable = true;
           devShell.languageServers.erlang = true;
           versions = {
-            erlang = "27.1";
-            elixir = "1.9.4";
+            erlang = "25.3.2.15";
+            elixir = "1.17.3";
           };
         };
       };
