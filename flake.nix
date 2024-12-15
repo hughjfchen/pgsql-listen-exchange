@@ -8,13 +8,12 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = {
-    self,
+  outputs = inputs@{
     beam-flakes,
     flake-parts,
     ...
   }:
-    flake-parts.lib.mkFlake {inherit self;} {
+    flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [beam-flakes.flakeModule];
 
       systems = ["x86_64-linux"];
@@ -24,7 +23,7 @@
           enable = true;
           devShell.languageServers.erlang = true;
           versions = {
-            erlang = "25.3.2.15";
+            erlang = "25.3.2";
             elixir = "1.17.3";
           };
         };
